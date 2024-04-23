@@ -2,16 +2,17 @@ def test_get_api_key_for_invalid_email_invalid_password(email=invalid_email, pas
     """Проверяем возможность входа при неверном логине и пароле """
 
     # Запрашиваем ключ api и сохраняем в переменую auth_key
-    _, auth_key = pf.get_api_key(valid_email, valid_password)
+    _, auth_key = pf.get_api_key(invalid_email, invalid_password)
 
     assert status == 400
+
       
 
 def test_get_api_key_for_invalid_email_valid_password(email=invalid_email, password=valid_password):
      """Проверяем возможность входа при неверном логине и верном пароле """
 
      # Запрашиваем ключ api и сохраняем в переменую auth_key
-      _, auth_key = pf.get_api_key(valid_email, valid_password)
+      _, auth_key = pf.get_api_key(invalid_email, valid_password)
 
     assert status == 400
 
@@ -21,44 +22,43 @@ def test_get_api_key_for_invalid_email_valid_password(email=valid_email, passwor
     """Проверяем возможность входа при верном логине и неверном пароле """
    
     # Запрашиваем ключ api и сохраняем в переменую auth_key
-    _, auth_key = pf.get_api_key(valid_email, valid_password)
+    _, auth_key = pf.get_api_key(valid_email, invalid_password)
 
     assert status == 400
    
 
-def test_get_api_key_for_invalid_user(email=valid_email, password=invalid_password):
-    """Проверяем возможность входа при верном логине и неверном пароле """
+def test_get_api_key_for_invalid_user(email=valid_email, password=valid_password):
+    """Проверяем возможность входа при верном логине и верном пароле """
 
     # Запрашиваем ключ api и сохраняем в переменую auth_key
      _, auth_key = pf.get_api_key(valid_email, valid_password)
     
-    assert status == 400
+    assert status == 200
 
 def test_add_new_pet_with_invalid_data_invalid_age(name='Персик', animal_type='двортерьер',
                                      age='65948776554'):
-    """Проверяем что можно добавить питомца с  некорректными данными слишком большим числом в возрасте"""
+    """Проверяем добавление питомца с  некорректными данными слишком большим числом в возрасте"""
 
     # Запрашиваем ключ api и сохраняем в переменую auth_key
     _, auth_key = pf.get_api_key(valid_email, valid_password)
 
     # Добавляем питомца
-    status, result = pf.add_new_pet(auth_key, name, animal_type, age, pet_photo)
+    status, result = pf.add_new_pet(auth_key, name, animal_type, age)
 
-    # Сверяем полученный ответ с ожидаемым результатом
     assert status == 400
+    
     
 
 def test_add_new_pet_with_invalid_data_invalid_animal_type(name='Персик', animal_type='1568792855',
                                      age='4'):
     """Проверяем добавление питомца с  некорректными данными - некоректными данными в animal_type """
    
-   # Запрашиваем ключ api и сохраняем в переменую auth_key
+    # Запрашиваем ключ api и сохраняем в переменую auth_key
     _, auth_key = pf.get_api_key(valid_email, valid_password)
 
     # Добавляем питомца
     status, result = pf.add_new_pet(auth_key, name, animal_type, age)
-
-    # Сверяем полученный ответ с ожидаемым результатом
+    
     assert status == 400
                                     
 def test_add_new_pet_with_incomplete_data(name='Персик', animal_type=' ',
