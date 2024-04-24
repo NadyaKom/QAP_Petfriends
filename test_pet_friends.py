@@ -18,7 +18,7 @@ def test_get_api_key_for_invalid_email_valid_password(email=invalid_email, passw
      """Проверяем возможность входа при неверном логине и верном пароле """
 
      # Запрашиваем ключ api и сохраняем в переменую auth_key
-    _, auth_key = pf.get_api_key(invalid_email, valid_password)
+     _, auth_key = pf.get_api_key(invalid_email, valid_password)
 
      assert status == 400
      assert status == 400
