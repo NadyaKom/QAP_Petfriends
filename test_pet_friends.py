@@ -115,6 +115,6 @@ def test_delete_pet_by_invalid_id(pet_id='f70212c3-4ced-4fa7-b4a5-17041a6f')
     #запрашиваем список своих питомцев
     _, my_pets = pf.get_list_my_pets(auth_key, "my_pets")
 
-    # Проверяем что статус ответа равен 400 и в списке питомцев нет такого  id  питомца
+    # Проверяем что статус ответа равен 400  в списке питомцев нет такого  id  питомца
     assert status == 400
     assert pet_id not in my_pets.values()
