@@ -1,4 +1,8 @@
-from settings import valid_password, valid_email
+from api import PetFriends
+from settings import valid_email, valid_password, invalid_email, invalid_password
+import os
+
+pf = PetFriends()
 
 def test_get_api_key_for_invalid_email_invalid_password(email=invalid_email, password=invalid_password):
     """Проверяем возможность входа при неверном логине и пароле """
