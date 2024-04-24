@@ -5,7 +5,7 @@ def test_get_api_key_for_invalid_email_invalid_password(email=invalid_email, pas
     _, auth_key = pf.get_api_key(invalid_email, invalid_password)
 
     assert status == 400
-
+    assert status == 400
       
 
 def test_get_api_key_for_invalid_email_valid_password(email=invalid_email, password=valid_password):
@@ -15,7 +15,7 @@ def test_get_api_key_for_invalid_email_valid_password(email=invalid_email, passw
       _, auth_key = pf.get_api_key(invalid_email, valid_password)
 
     assert status == 400
-
+    assert status == 400
      
 
 def test_get_api_key_for_invalid_email_valid_password(email=valid_email, password=invalid_password):
@@ -25,7 +25,7 @@ def test_get_api_key_for_invalid_email_valid_password(email=valid_email, passwor
     _, auth_key = pf.get_api_key(valid_email, invalid_password)
 
     assert status == 400
-   
+    assert status == 400
 
 def test_get_api_key_for_invalid_user(email=valid_email, password=valid_password):
     """Проверяем возможность входа при верном логине и верном пароле """
