@@ -114,7 +114,7 @@ class PetFriends:
             'animal_type': animal_type
         }
         headers = {'auth_key': auth_key['key']}
-        res = requests.post(self.base_url + 'api/pets/, headers=headers, data=data)
+        res = requests.post(self.base_url + 'api/pets/', headers=headers, data=data)
         status = res.status_code
         result = ""
         try:
@@ -129,7 +129,7 @@ class PetFriends:
             'pet_photo': pet_photo
         }
         headers = {'auth_key': auth_key['key']}
-        res = requests.post(self.base_url + 'api/pets/, headers=headers, data=data)
+        res = requests.post(self.base_url + 'api/pets/', headers=headers, data=data)
         status = res.status_code
         result = ""
         try:
