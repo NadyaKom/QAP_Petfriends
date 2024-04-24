@@ -1,3 +1,5 @@
+from settings import valid_password, valid_email
+
 def test_get_api_key_for_invalid_email_invalid_password(email=invalid_email, password=invalid_password):
     """Проверяем возможность входа при неверном логине и пароле """
 
