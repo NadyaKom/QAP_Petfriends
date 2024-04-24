@@ -106,7 +106,7 @@ def test_delete_pet_by_id(pet_id='f70212c3-4ced-4fa7-b4a5-17041a6f8454'):
     assert status == 200
     assert pet_id not in my_pets.values()
 
-def test_delete_pet_by_invalid_id(pet_id='f70212c3-4ced-4fa7-b4a5-17041a6f')
+def test_delete_pet_by_invalid_id(pet_id='f70212c3-4ced-4fa7-b4a5-17041a6f'):
    """ Проверяем удаление питомца по  неверному id""" 
    
     pet_id = 'ff70212c3-4ced-4fa7-b4a5-17041a6f'
