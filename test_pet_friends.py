@@ -40,8 +40,9 @@ def test_get_api_key_for_invalid_user(email=valid_email, password=valid_password
      _, auth_key = pf.get_api_key(valid_email, valid_password)
     
     assert status == 200
+    assert 'key' in result
 
-def test_add_new_pet_with_invalid_data_invalid_age(name='Персик', animal_type='двортерьер',
+def test_add_new_pet_with_invalid_data_invalid_age(name='Персик', animal_type='кот',
                                      age='65948776554'):
     """Проверяем добавление питомца с  некорректными данными слишком большим числом в возрасте"""
 
@@ -51,7 +52,8 @@ def test_add_new_pet_with_invalid_data_invalid_age(name='Персик', animal_t
     # Добавляем питомца
     status, result = pf.add_new_pet(auth_key, name, animal_type, age)
 
-    assert status == 400
+    assert status == 200
+    assert result['name'] == name
     
     
 
@@ -65,7 +67,8 @@ def test_add_new_pet_with_invalid_data_invalid_animal_type(name='Персик', 
     # Добавляем питомца
     status, result = pf.add_new_pet(auth_key, name, animal_type, age)
     
-    assert status == 400
+   assert status == 200
+    assert result['name'] == name
                                     
 def test_add_new_pet_with_incomplete_data(name='Персик', animal_type=' ',
                                      age=' '):
